@@ -1,0 +1,34 @@
+package com.xhc07.autoglide
+
+// Modified for AutoGlide by @XHCinfoG_Adm (https://github.com/xhc07). See MODIFICATIONS.md.
+
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
+
+/* 滑动事件中心 */
+object SlideEventHub {
+    private val _eventFlow = MutableSharedFlow<SlideEvent>(extraBufferCapacity = 64)
+    val eventFlow = _eventFlow.asSharedFlow()
+
+    /**
+     * 发送事件
+     * 
+     * @param event 事件
+     */
+    fun sendEvent(event: SlideEvent) {
+        _eventFlow.tryEmit(event)
+    }
+}
+
+/* 滑动事件 */
+sealed class SlideEvent {
+    /* 强行停止滑动事件 */
+    object ForceStop : SlideEvent()
+    object CustomTrajectoryCleared : SlideEvent()
+    /**
+     * 悬浮窗透明度改变事件
+     *
+     * @param transparency 底板透明度数值
+     */
+    data class FloatingTransparencyChanged(val transparency: Int) : SlideEvent()
+}
