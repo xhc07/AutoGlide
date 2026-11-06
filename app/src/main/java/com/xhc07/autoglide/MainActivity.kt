@@ -174,6 +174,8 @@ class MainActivity : AppCompatActivity() {
         binding.accessibilityServicePermissionSwitch.setOnCheckedChangeListener(accessibilitySwitchListener)
         binding.overlayPermissionSwitch.setOnCheckedChangeListener(overlaySwitchListener)
         setupStartButton()
+        setupPageNavigation()
+        setupAboutPage()
         // 注册Shizuku监听器
         binding.root.post {
             Shizuku.addRequestPermissionResultListener(shizukuPermissionListener)
@@ -1398,6 +1400,47 @@ class MainActivity : AppCompatActivity() {
             startService(floatingIntent)
             moveTaskToBack(true)
         }
+    }
+
+    /* 绑定主页面和设置子页面切换 */
+    private fun setupPageNavigation() {
+        binding.mainTabGroup.addOnButtonCheckedListener { _, checkedId, isChecked ->
+            if (!isChecked) {
+                return@addOnButtonCheckedListener
+            }
+            val permissionsSelected = checkedId == R.id.btnTabPermissions
+            val settingsSelected = checkedId == R.id.btnTabSettings
+            binding.permissionsPage.isVisible = permissionsSelected
+            binding.settingsPage.isVisible = settingsSelected
+            binding.aboutPage.isVisible = checkedId == R.id.btnTabAbout
+            when {
+                permissionsSelected -> binding.permissionsPage.scrollTo(0, 0)
+                settingsSelected -> binding.durationPage.scrollTo(0, 0)
+                else -> binding.aboutPage.scrollTo(0, 0)
+            }
+        }
+
+        binding.settingsTabGroup.addOnButtonCheckedListener { _, checkedId, isChecked ->
+            if (!isChecked) {
+                return@addOnButtonCheckedListener
+            }
+            binding.durationPage.isVisible = checkedId == R.id.btnSettingsDuration
+            binding.speedPage.isVisible = checkedId == R.id.btnSettingsSpeed
+            binding.pausePage.isVisible = checkedId == R.id.btnSettingsPause
+            when (checkedId) {
+                R.id.btnSettingsSpeed -> binding.speedPage.scrollTo(0, 0)
+                R.id.btnSettingsPause -> binding.pausePage.scrollTo(0, 0)
+                else -> binding.durationPage.scrollTo(0, 0)
+            }
+        }
+    }
+
+    /* 显示应用版本信息 */
+    private fun setupAboutPage() {
+        val versionName = runCatching {
+            packageManager.getPackageInfo(packageName, 0).versionName
+        }.getOrNull().orEmpty()
+        binding.aboutVersionText.text = getString(R.string.about_version_format, versionName)
     }
 
     /**

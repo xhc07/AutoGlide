@@ -96,4 +96,27 @@
     <string name="credit_modified">修改作者：@XHCinfoG_Adm\nGitHub：https://github.com/xhc07</string>
     <string name="credit_original">原作者：tianxing-ovo\nGitHub：https://github.com/tianxing-ovo</string>
     <string name="credit_license">本项目基于 AutoSlide 修改，遵循 Apache License 2.0</string>
+    <string name="app_subtitle">依靠无障碍的安卓自动滑动屏幕APP</string>
+    <string name="tab_permissions">权限</string>
+    <string name="tab_settings">设置</string>
+    <string name="tab_about">关于</string>
+    <string name="permissions_title">权限</string>
+    <string name="permissions_intro">自动滑行需要以下两项系统权限才能正常工作。</string>
+    <string name="accessibility_permission_explanation">用于执行屏幕滑动手势，并监听音量键以支持强制停止；这是自动滑动能够运行的核心权限。</string>
+    <string name="overlay_permission_explanation">用于在其他应用上方显示悬浮球和控制面板，方便随时开始、暂停或切换滑动方向。</string>
+    <string name="settings_title">设置</string>
+    <string name="settings_tab_duration">持续时间</string>
+    <string name="settings_tab_speed">滑动速度</string>
+    <string name="settings_tab_pause">停顿时间</string>
+    <string name="settings_duration_desc">控制一次手势从起点到终点的时间。时间越短滑动越快。</string>
+    <string name="settings_speed_desc">以 px/s 控制默认方向滑动的速度，距离由速度和持续时间共同决定。</string>
+    <string name="settings_pause_desc">控制两次自动滑动之间的等待时间。</string>
+    <string name="about_title">关于</string>
+    <string name="about_version_format">版本：%s</string>
+    <string name="about_modifier">修改作者：@XHCinfoG_Adm\nGitHub：https://github.com/xhc07</string>
+    <string name="about_original">原作者：tianxing-ovo\nGitHub：https://github.com/tianxing-ovo</string>
+    <string name="about_repo">项目仓库：https://github.com/xhc07/AutoGlide</string>
+    <string name="about_license">开源协议：Apache License 2.0</string>
+    <string name="about_relation">本项目基于 AutoSlide 修改，与原作者无隶属关系，原作者未对本修改版作出背书。</string>
+    <string name="about_app_desc">依靠无障碍服务的安卓自动滑动屏幕 APP，支持固定/随机持续时间、像素速度、停顿模式和自定义轨迹。</string>
 </resources>

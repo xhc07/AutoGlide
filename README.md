@@ -24,7 +24,7 @@ AutoGlide（自动滑行）是一个基于 [AutoSlide](https://github.com/tianxi
 - **通知栏磁贴**：通过系统快捷设置开关悬浮窗服务。
 - **安全停止**：音量键强制停止、息屏自动停止。
 - **权限开启**：支持手动、Shizuku、ADB 三种方式开启无障碍服务。
-- **页面滚动**：设置页支持上下滚动，大字体或高显示比例下不会截断选项。
+- **页面滚动**：每个主页面和设置子页面都支持上下滚动，大字体或高显示比例下不会截断选项。
 
 ## 与原版的主要差异
 
@@ -32,7 +32,7 @@ AutoGlide（自动滑行）是一个基于 [AutoSlide](https://github.com/tianxi
 2. 新增“像素速度（px/s）”设置，支持上下/左右分别调整和统一调整。
 3. 持续时间和像素速度均支持固定/随机模式，随机模式下可设置范围。
 4. 所有滑块都增加自定义数值输入。
-5. 设置页增加纵向滚动。
+5. 设置页增加纵向滚动，并拆分为三个设置子页面。
 6. 删除应用内“检查更新”功能，移除网络与安装 APK 相关权限。
 7. 更换应用图标、应用名称、包名，并提升版本号。
 8. 在应用内和本 README 中标注修改作者与原作者信息。
@@ -41,7 +41,7 @@ AutoGlide（自动滑行）是一个基于 [AutoSlide](https://github.com/tianxi
 
 - Android 8.0（API 26）及以上。
 - 包名：`com.xhc07.autoglide`
-- 版本：`1.0.0`（versionCode `23`）
+- 版本：`2.0.0-beta`（versionCode `24`）
 - 与原版 AutoSlide 包名不同，可以同时安装，不会覆盖原版。
 
 从源码构建：
@@ -53,7 +53,7 @@ AutoGlide（自动滑行）是一个基于 [AutoSlide](https://github.com/tianxi
 生成文件位于：
 
 ```text
-app/build/outputs/apk/release/AutoGlide-v1.0.0.apk
+app/build/outputs/apk/release/AutoGlide-v2.0.0-beta.apk
 ```
 
 构建环境要求：JDK 21、Android SDK Platform 37（`compileSdkMinor = 0`）、Build Tools 37.0.0、Gradle 8.14.6。
